@@ -2,7 +2,6 @@ import destinations from '../mock/destinations.json';
 import { getByKey } from '../utils';
 
 export default class DestinationsModel {
-
   destinations = destinations;
 
   getDestinations() {
@@ -13,5 +12,4 @@ export default class DestinationsModel {
     const eventsDestination = getByKey('id', id, destinations);
     return eventsDestination;
   }
-
 }

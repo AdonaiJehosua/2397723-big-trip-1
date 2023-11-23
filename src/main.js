@@ -10,7 +10,7 @@ const eventsModel = new EventModel();
 const offersModel = new OffersModel();
 const destinationsModel = new DestinationsModel();
 
-const filterPresenter = new FilterPresenter({ сontainer: headerFiltersElement });
+const filterPresenter = new FilterPresenter({ container: headerFiltersElement });
 const tripEventsPresenter = new TripEventsPresenter({
   tripEventsContainer: tripEventsElement,
   eventsModel,

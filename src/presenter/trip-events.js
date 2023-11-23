@@ -14,22 +14,6 @@ export default class TripEventsPresenter {
     this.destinationsModel = destinationsModel;
   }
 
-  renderEvents(events) {
-    for (const event of events) {
-      render(
-        new EventView({
-          event: event,
-          offers: this.offersModel.getEventsOffers({
-            type: event.type,
-            ids: event.offers
-          }),
-          destination: this.destinationsModel.getEventsDestination(event.destination)
-        }),
-        this.tripEventsContainer
-      );
-    }
-  }
-
   init() {
     this.events = [...this.eventsModel.getEvents()];
     this.offers = [...this.offersModel.getOffers()];
@@ -44,6 +28,22 @@ export default class TripEventsPresenter {
       render(new FormView({ offers: this.offers, destinations: this.destinations }), this.eventsBoard.getElement(), RenderPosition.AFTERBEGIN);
     } else {
       render(new EmptyEventsListView('Everything'), this.tripEventsContainer);
+    }
+  }
+
+  renderEvents(events) {
+    for (const event of events) {
+      render(
+        new EventView({
+          event: event,
+          offers: this.offersModel.getEventsOffers({
+            type: event.type,
+            ids: event.offers
+          }),
+          destination: this.destinationsModel.getEventsDestination(event.destination)
+        }),
+        this.tripEventsContainer
+      );
     }
   }
 }
